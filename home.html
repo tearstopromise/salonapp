@@ -8,27 +8,39 @@
   <script src="js/jquery.mobile-1.4.0.min.js"></script>
     <script type="text/javascript" src="engine1/wowslider.js"></script>
     <script type="text/javascript" src="engine1/script.js"></script>
-
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    
     <link rel="stylesheet" type="text/css" href="engine1/style.css" />
   <style>
       tr {
           border-bottom: 1px solid #d6d6d6;
       }
+	  #wowslider-container1{
+	   margin: 0px;
+	   
+        padding: 0px;width:100%;		
+		}
+		
+		#map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
   </style>
 </head>
 <body onload="loadAjax()">
 
-    <div data-role="page" id="servicesPage">
-        <div data-role="header" data-position="fixed">
+    <div data-role="page" id="servicesPage" data-theme="d">
+        <div data-role="header">
 
-            <a href="#mypanel" data-icon="grid" data-iconpos="notext" data-theme="b" data-inline="true" data-role="button">left</a>
+            <a href="#mypanel" data-icon="grid" data-iconpos="notext" data-theme="d" data-inline="true" data-role="button">left</a>
             <h1>Salon 360 Services</h1>
             <div data-role="navbar">
                 <ul>
 
                     <li><a href="" data-transition="slide" data-icon="info">Services</a></li>
-                    <li><a href="#reservationPage" data-theme="b" data-transition="slide" data-icon="star">Reservation</a></li>
-                    <li><a href="#contactPage" data-transition="slide" data-theme="b" data-icon="phone">Contact</a></li>
+                    <li><a href="#reservationPage" data-theme="c" data-transition="slide" data-icon="star">Reservation</a></li>
+                    <li><a href="#contactPage" data-transition="slide" data-theme="c" data-icon="phone">Contact</a></li>
 
                 </ul>
             </div>
@@ -36,61 +48,15 @@
 
         </div>
         <div data-role="content">
-
-            <div id="wowslider-container1">
-                <div class="ws_images">
-                    <ul>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/1.jpg" alt="1" title="1" id="wows1_0" />Waiting Area</li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/2.jpg" alt="2" title="2" id="wows1_1" />Chairs</li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/3.jpg" alt="3" title="3" id="wows1_2" />Salon 360 Outside</li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/7.jpg" alt="7" title="7" id="wows1_3" />Chairs</li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/8.jpg" alt="8" title="8" id="wows1_4" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/14.jpg" alt="14" title="14" id="wows1_6" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/15.jpg" alt="15" title="15" id="wows1_7" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/16.jpg" alt="16" title="16" id="wows1_8" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/19.jpg" alt="19" title="19" id="wows1_9" /></li>
-                        <li><a href="http://wowslider.com/vf"><img src="data1/images/1266570_665536080123117_1482308380_o.jpg" alt="full screen slider" title="1266570_665536080123117_1482308380_o" id="wows1_10" /></a>Logo</li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/4.jpg" alt="4" title="4" id="wows1_10" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/5.jpg" alt="5" title="5" id="wows1_12" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/6.jpg" alt="6" title="6" id="wows1_13" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/10.jpg" alt="10" title="10" id="wows1_14" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/12.jpg" alt="12" title="12" id="wows1_15" /></li>
-                        <li><img style="width:1180px;height:400px;" src="data1/images/13.jpg" alt="13" title="13" id="wows1_16" /></li>
-                    </ul>
-                </div>
-                <div class="ws_bullets">
-                    <div>
-                        <a href="#" title="1"><img src="data1/tooltips/1.jpg" alt="1" />1</a>
-                        <a href="#" title="2"><img src="data1/tooltips/2.jpg" alt="2" />2</a>
-                        <a href="#" title="3"><img src="data1/tooltips/3.jpg" alt="3" />3</a>
-                        <a href="#" title="7"><img src="data1/tooltips/7.jpg" alt="7" />4</a>
-                        <a href="#" title="8"><img src="data1/tooltips/8.jpg" alt="8" />5</a>
-                        <a href="#" title="14"><img src="data1/tooltips/14.jpg" alt="14" />7</a>
-                        <a href="#" title="15"><img src="data1/tooltips/15.jpg" alt="15" />8</a>
-                        <a href="#" title="16"><img src="data1/tooltips/16.jpg" alt="16" />9</a>
-                        <a href="#" title="19"><img src="data1/tooltips/19.jpg" alt="19" />10</a>
-                        <a href="#" title="20"><img src="data1/tooltips/1266570_665536080123117_1482308380_o.jpg" alt=""/>11</a>
-                        <a href="#" title="1"><img src="data1/tooltips/4.jpg" alt="1" />13</a>
-                        <a href="#" title="1"><img src="data1/tooltips/5.jpg" alt="1" />14</a>
-                        <a href="#" title="1"><img src="data1/tooltips/6.jpg" alt="1" />15</a>
-                        <a href="#" title="1"><img src="data1/tooltips/10.jpg" alt="1" />16</a>
-                        <a href="#" title="1"><img src="data1/tooltips/12.jpg" alt="1" />17</a>
-                        <a href="#" title="1"><img src="data1/tooltips/13.jpg" alt="1" />18</a>
-                    </div>
-                </div>
-                <div class="ws_shadow"></div>
-            </div>	
-
-
-
+          
             <form>
                 <input id="filterTable-input" data-type="search">
             </form>
             <table data-role="table" data-filter="true" data-mode="columntoggle" data-column-btn-text="" data-input="#filterTable-input" class="ui-responsive ui-shadow">
                 <thead>
                     <tr>
-                        <th data-priority="1">Service</th>
-                        <th data-priority="2">Price</th>
+                        <th>Service</th>
+                        <th>Price</th>
 
                     </tr>
                 </thead>
@@ -181,22 +147,22 @@
  
 		 <!--Left Panel-->
 
-        <div data-role="panel" data-display="reveal" id="mypanel">
+        <div data-role="panel" data-display="reveal" id="mypanel" >
 
 
 
-            <ul data-role="listview" data-theme="a">
-                <li data-role="list-divider" data-theme="a"></li>
-                <li data-role="list-divider" data-theme="a">
+            <ul data-role="listview" data-theme="d">
+                <li data-role="list-divider" data-theme="d"></li>
+                <li data-role="list-divider" data-theme="d">
                     <div id="paneluserinfo" style="text-align:right;"></div>
                 </li>
-                <li data-role="list-divider" data-theme="a"></li>
+                <li data-role="list-divider" data-theme="d"></li>
                 <li data-role="list-divider" data-theme="c"></li>
-                <li data-role="list-divider" data-theme="b">Menu</li>
+                <li data-role="list-divider" data-theme="c">Menu</li>
                 <li data-role="list-divider" data-theme="c"></li>
 
-                <li id="btn-home" class="inBar"><a href="">Terms and Conditions</a></li>
-                <li id="btn-about" class="inBar"><a href="">About</a></li>
+                <li id="btn-home" class="inBar"><a href="#termsdialog">Terms and Conditions</a></li>
+                <li id="btn-about" class="inBar"><a href="#aboutdialog">About</a></li>
 
                 <li id="loginhider" class="inBar"><a href="#logindialog" id="btn-login">Login</a></li>
 
@@ -210,14 +176,14 @@
   
     </div>
 
-        <div id="logindialog" data-role="dialog" data-title="Login to Salon 360" data-theme="a">
-            <div data-role="header" data-theme="b">
+        <div id="logindialog" data-role="dialog" data-title="Login to Salon 360" data-theme="d">
+            <div data-role="header" data-theme="c">
                 <h1>Login to Salon 360</h1>
             </div>
             <div data-role="content">
                 <form id="hideme" action="#">
                     <label>Email:</label>
-                    <input type="email" class="form-control" name="username" id="username" placeholder="Username" required />
+                    <input type="email" class="form-control" name="username" id="username" placeholder="Email" required />
                     <label>Password:</label>
                     <input type="password" class="form-control" name="pass" id="lpass" placeholder="Password" required />
 
@@ -232,10 +198,51 @@
             </div>
 
         </div>
+        <div id="aboutdialog" data-role="dialog"  data-theme="d">
+            <div data-role="header" data-theme="c">
+            <h1></h1>
+            </div>
+            <div data-role="content">
+              <center>
+			  <h3><b>    <h1>Developed by:</h1></b>
+			  <br><br>
+			Robin Sabater<br>
+			Avelina Fernandez<br>
+			Angelie Paula Garcia<br>
+			  <h3><br>
+			  
+			  Special thanks to:<br><br>
+			  Maam Eldee Magpale<br>
+			  Prof. Arturo Casinas<br>
+			  Classmates<br>
+			  Family<br>
+			  Friends<br>
+			  
+			  
+			  
+			</center>
+
+            </div>
+
+        </div>
+		
+		        <div id="termsdialog" data-role="dialog"  data-theme="d">
+            <div data-role="header" data-theme="c">
+                <h1></h1>
+            </div>
+            <div data-role="content">
+    	<center><h1>Reservation Terms and Conditions</h1>
+								1. 15 minutes to 20 minutes late will not accomodate.<br /><br />
+								2. Full payment using credit card.<br /><br />
+							</center>
 
 
-    <div id="registerdialog" data-role="dialog" data-title="Login to Salon 360" data-theme="a">
-        <div data-role="header" data-theme="b">
+            </div>
+
+        </div>
+
+    <div id="registerdialog" data-role="dialog" data-title="Login to Salon 360" data-theme="d">
+        <div data-role="header" data-theme="c">
             <h1>Register to Salon 360</h1>
         </div>
         <div data-role="content">
@@ -280,16 +287,16 @@
     </div>
 
 
-    <div data-role="page" id="reservationPage">
-        <div data-role="header" data-position="fixed">
+    <div data-role="page" id="reservationPage" data-theme="d">
+        <div data-role="header">
 
                     <h1>Salon 360 Reservation</h1>
             <div data-role="navbar">
                 <ul>
 
-                    <li><a href="#servicesPage" data-theme="b" data-transition="slide" data-direction="reverse" data-icon="info" >Services</a></li>
+                    <li><a href="#servicesPage" data-theme="c" data-transition="slide" data-direction="reverse" data-icon="info" >Services</a></li>
                     <li><a href=""  data-transition="slide" data-icon="star">Reservation</a></li>
-                    <li><a href="#contactPage" data-transition="slide" data-theme="b" data-icon="phone">Contact</a></li>
+                    <li><a href="#contactPage" data-transition="slide" data-theme="c" data-icon="phone">Contact</a></li>
 
                 </ul>
             </div>
@@ -299,9 +306,9 @@
             <div id="notloggedinreserve" class="ui-body ui-body-d">
                 <center><br><br><br>
                 Log in to access reservation service<br><br>
-                <a href="#logindialog" data-theme="b" data-inline="true" data-role="button"> Log In </a><br>
-                <a href="#registerdialog" data-theme="b" data-inline="true" data-role="button"> Register </a>
-                    <br><br>
+                <a href="#logindialog" data-theme="c" data-inline="true" data-role="button"> Log In </a><br>
+                <a href="#registerdialog" data-theme="c" data-inline="true" data-role="button"> Register </a>
+                    <br><br><br>
                 </center>
             </div>
 
@@ -497,7 +504,7 @@
                 <label>Service</label>
                 <select style="width:70%;" id="idselect_service"><option>select Type Of Service first </option></select>
                 <br><br>
-                <input type="button" class="btn_submit" data-theme="b" onclick="fn_validation_res_form();" value="Reserve" />
+                <input type="button" class="btn_submit" data-theme="c" onclick="fn_validation_res_form();" value="Reserve" />
                 <div id="idbtn_caption_res_form" type="button" class="btn_submit" style="font-size:25px;color:red;margin-right:5px;display:none;" value="Error">Error</div>
 
 
@@ -513,15 +520,15 @@
 
     </div>
 	
-    <div data-role="page" id="contactPage">
-        <div data-role="header" data-position="fixed">
+    <div data-role="page" id="contactPage" data-theme="d">
+        <div data-role="header">
 
             <h1>Contact Us</h1>
             <div data-role="navbar">
                 <ul>
 
-                    <li><a href="#servicesPage" data-theme="b" data-transition="slide" data-direction="reverse" data-icon="info">Services</a></li>
-                    <li><a href="#reservationPage" data-theme="b" data-transition="slide" data-direction="reverse" data-icon="star">Reservation</a></li>
+                    <li><a href="#servicesPage" data-theme="c" data-transition="slide" data-direction="reverse" data-icon="info">Services</a></li>
+                    <li><a href="#reservationPage" data-theme="c" data-transition="slide" data-direction="reverse" data-icon="star">Reservation</a></li>
                     <li><a href="#" data-icon="phone">Contact</a></li>
 
                 </ul>
@@ -538,7 +545,10 @@
                     Phone: <b>0939 - 633 - 0082</b><br />
                     Email: youremail@mail.com<br /><br />
                     28 VILLA BLDG. GORDON AVE. NEW ASINAN, OLONGAPO CITY
-                    <br /><br /></center>
+                    <br /><br />
+					 <div id="map-canvas"></div>
+					 
+					 </center>
 
             </div>
         </div>
@@ -658,6 +668,25 @@
                $("#idselect_service").html(output).show();
            });
        }
+	   
+	   
+function initialize() {
+  var myLatlng = new google.maps.LatLng(14.8288502,120.2862365);
+  var mapOptions = {
+    zoom: 18,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
   
 	</script>
     <script src="js/jquery_validate.js"></script>

@@ -114,6 +114,9 @@ var mysalon =
 							"http://salon360.byethost11.com/salon360mobileapp/uregister.php?callback=?",
 							mysalon.$signup_form.serialize(),
 							function(data) {
+								
+								alert('Registration Sucessful!');
+								localStorage.setItem("username", data.username);
 								location.href = "index.html";
 							}
 						).fail(function(data){

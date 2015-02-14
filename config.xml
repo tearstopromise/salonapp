@@ -14,23 +14,18 @@
 	
 	<icon src="icon.png" gap:platform="android" gap:density="xhdpi" />
 	
-	<preference name="phonegap-version" value="3.3.0" />
+	<preference name="phonegap-version" value="3.5.0" />
 	
 	<access origin="*" subdomains="true" />
 	<access uri="*" subdomains="true" />
 	<feature name="http://api.phonegap.com/1.0/network"/>
-	<feature name="http://api.phonegap.com/1.0/camera"/>
-	<feature name="http://api.phonegap.com/1.0/file"/>
-	<feature name="http://api.phonegap.com/1.0/geolocation"/>
-	
+
 	<gap:plugin name="org.apache.cordova.inappbrowser" />
-	<gap:plugin name="org.apache.cordova.camera" />
-	<gap:plugin name="org.apache.cordova.media" />
-	<gap:plugin name="org.apache.cordova.media-capture" />
+
 	
 	<preference name="orientation" value="portrait" />
-	<preference name="fullscreen" value="true" />
+	<preference name="fullscreen" value="false" />
 	<preference name="target-device" value="universal" />
 	
-	  <content src="home.html" />
+
 </widget>
