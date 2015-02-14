@@ -587,7 +587,7 @@
                    document.getElementById("branches").innerHTML = xmlhttp.responseText;
                }
            }
-           xmlhttp.open("GET", "http://salon360.byethost11.com/branches.php", true);
+           xmlhttp.open("GET", "http://salon360.byethost11.com/salon360mobileapp/branches.php", true);
            xmlhttp.send();
        }
 
@@ -606,7 +606,7 @@
            str_timeout = ((str_timeout_arr[0] * 1) + (1 * 1)) + ":" + str_timeout_arr[1] + ":" + str_timeout_arr[2];
 
            if (str_p_checkStylistAvailability) {
-               $.post("http://salon360.byethost11.com/reservation_add.php", {
+               $.post("http://salon360.byethost11.com/salon360mobileapp/reservation_add.php", {
                    datepicker: $("#year").val() + "-" + $("#month").val() + "-" + $("#date").val(),
                    str_timein: str_timein,
                    str_timeout: str_timeout,
@@ -623,7 +623,7 @@
            }
            if ($("#idhidden_stylistID").val() != "" && $("#idtxt_fname").val() != "" && $("#idtxt_lname").val() != "" && $("#idtxt_address").val() != "" && $("#idtxt_email").val() != "" && $("#idtxt_cn").val() != "" && $("#datepicker").val() != "" && $("#idselect_branch").val() != "SELECT" && $("#idselect_typeservice").val() != "SELECT") {
 
-               $.post("http://salon360.byethost11.com/reservationfunction.php", {
+               $.post("http://salon360.byethost11.com/salon360mobileapp/reservationfunction.php", {
                    idtxt_fname: $("#idtxt_fname").val(),
                    idtxt_lname: $("#idtxt_lname").val(),
                    idtxt_address: $("#idtxt_address").val(),
@@ -651,7 +651,7 @@
        }
 
        function fn_recal(str_p_stype) {
-           $.post("http://salon360.byethost11.com/typeofservices.php", {
+           $.post("http://salon360.byethost11.com/salon360mobileapp/typeofservices.php", {
                str_recal_stype: str_p_stype
            },
            function (output) {

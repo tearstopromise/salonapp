@@ -100,7 +100,7 @@ var mysalon =
 			
 			// validate if email and/or username exists in the database
 			$.getJSON(
-				"phpfiles/userval.php?callback=?",
+				"http://salon360.byethost11.com/salon360mobileapp/userval.php?callback=?",
 				mysalon.$signup_form.serialize(),
 				function(data) {
 					// uexists = username exists
@@ -111,7 +111,7 @@ var mysalon =
 						$("#erroremail").append("Email <b>"+ data.username + "</b> is already in use, use another Email Address<br>");
 					} else {
 						$.getJSON(
-							"phpfiles/uregister.php?callback=?",
+							"http://salon360.byethost11.com/salon360mobileapp/uregister.php?callback=?",
 							mysalon.$signup_form.serialize(),
 							function(data) {
 								location.href = "index.html";
@@ -138,7 +138,7 @@ var mysalon =
 				return false;
 			}
 			
-			$.getJSON("phpfiles/verifyfirst.php?callback=?",
+			$.getJSON("http://salon360.byethost11.com/salon360mobileapp/verifyfirst.php?callback=?",
 				mysalon.$login_form.serialize(),
 				function(data) {
 					if (data.verified == "v1") {
