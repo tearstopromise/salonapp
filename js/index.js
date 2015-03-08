@@ -114,10 +114,8 @@ var mysalon =
 							"http://salon360.byethost11.com/salon360mobileapp/uregister.php?callback=?",
 							mysalon.$signup_form.serialize(),
 							function(data) {
+								alert('Registration Sucessful! Please check your E-mail to activate your account.');
 								
-								alert('Registration Sucessful!');
-								localStorage.setItem("username", data.username);
-								location.href = "index.html";
 							}
 						).fail(function(data){
 							alert("failed");
@@ -125,7 +123,7 @@ var mysalon =
 					}
 				}
 			).fail(function(data){
-				alert("validation failed");
+				alert("validation failed ");
 			});
 		});
 	}, // [\initSignUpForm]
@@ -167,4 +165,4 @@ var mysalon =
 
 	mysalon.initSignUpForm($);
 	mysalon.initLoginForm($);
-})(jQuery);
+})(jQuery);			

@@ -231,8 +231,16 @@
             </div>
             <div data-role="content">
     	<center><h1>Reservation Terms and Conditions</h1>
-								1. 15 minutes to 20 minutes late will not accomodate.<br /><br />
-								2. Full payment using credit card.<br /><br />
+						
+								Salon 360 Terms of Services<br /><br />
+								Thanks for using our services. The content of this mobile application is for your general information and use only. <br />
+								By using our Reservation Services you are agreeing to these terms and Please read them carefully.<br /><br /> 
+
+Reservation:<br />
+Here are some additional terms or requirements may apply. <br /><br />If you are 15 minutes to 20 minutes late will not be accomodate and you can use Credit card for the payment. <br /><br />
+
+Your Account:<br />
+You may need an account in order to use of our services. You may create your own account and it may be assigned to you by an administrator.
 							</center>
 
 
@@ -473,10 +481,44 @@
 
                                 </select>
                                 <select onchange="fn_validation_res_form('checkonly')" name="" id="idselect_su">
-                                    <option value="am">AM</option>
-                                    <option value="pm">PM</option>
+                              
+									<option value="pm">PM</option>
+									<option value="am">AM</option>
+                                
                                 </select>
                             </fieldset>
+							<select id="idselect_typeservice" onchange="fn_recal(document.getElementById(this.id).value)">
+                    <option value="SELECT">SELECT</option>
+                    <option value="ris">Reserve in Shop</option>
+                    <option value="hs">Home Service</option>
+                </select>
+				
+                <label>Service</label>
+				<div  style="display:none;" id="ris">
+                <select style="width:70%;"  onchange="fn_validation_res_form('checkonly')" class="idselect_service">
+				<option></option>
+				<option>Manicure</option>
+				<option>Hair Cut</option>
+				<option>Hair Spa</option>
+				<option>Highlights</option>
+				<option>Cellophane</option>
+				<option>Foot Spa</option>
+				<option>Pedicure</option>
+				<option>Manicure</option>
+				<option>Foot Paraffin</option>
+				<option>Japanese Hot Oil</option>
+				<option>Eyelash Perming</option>
+				<option>Eyelash Extension</option>
+				<option>Hair color with hair tratment</option>
+				<option>Hair Rebond with hair tratment</option>
+				<option>Brazillian Blowout</option>
+				</select>
+				</div>
+				<div  style="display:none;" id="home">
+				<select style="width:70%;" onchange="fn_validation_res_form('checkonly')" class="idselect_service">
+				<option></option>
+				</select>
+				</div>
                     <label>
                         Choose Available Stylist:
 
@@ -495,13 +537,7 @@
                 <label>Contact #</label>
                 <input type="text" id="idtxt_cn" required />
                 <label>Type of Service</label>
-                <select id="idselect_typeservice" onchange="fn_recal(document.getElementById(this.id).value)">
-                    <option value="SELECT">SELECT</option>
-                    <option value="ris">Reserve in Shop</option>
-                    <option value="hs">Home Service</option>
-                </select>
-                <label>Service</label>
-                <select style="width:70%;" id="idselect_service"><option>select Type Of Service first </option></select>
+                
                 <br><br>
                 <input type="button" class="btn_submit" data-theme="c" onclick="fn_validation_res_form();" value="Reserve" />
                 <div id="idbtn_caption_res_form" type="button" class="btn_submit" style="font-size:25px;color:red;margin-right:5px;display:none;" value="Error">Error</div>
@@ -621,9 +657,12 @@
                    str_timeout: str_timeout,
                    idselect_branch: $("#idselect_branch option:selected").text(),
                    idhidden_stylistID: $("#idhidden_stylistID").val(),
+				   idselect_service_text: $(".idselect_service option:selected").text(),
                    str_p_checkStylistAvailability: str_p_checkStylistAvailability
+				   
                },
        function (output) {
+		
            $("#iddiv_stylist").html(output);
            $("#idhidden_stylistID").val("");
            $("#iddiv_stylist_block").fadeOut(500);
@@ -631,7 +670,7 @@
                return true;
            }
            if ($("#idhidden_stylistID").val() != "" && $("#idtxt_fname").val() != "" && $("#idtxt_lname").val() != "" && $("#idtxt_address").val() != "" && $("#idtxt_email").val() != "" && $("#idtxt_cn").val() != "" && $("#datepicker").val() != "" && $("#idselect_branch").val() != "SELECT" && $("#idselect_typeservice").val() != "SELECT") {
-
+if(str_timeout > "09:00:00" && str_timeout < "21:30:00"){
                $.post("http://salon360.byethost11.com/salon360mobileapp/reservationfunction.php", {
                    idtxt_fname: $("#idtxt_fname").val(),
                    idtxt_lname: $("#idtxt_lname").val(),
@@ -643,14 +682,18 @@
                    str_timeout: str_timeout,
                    idselect_branch: $("#idselect_branch option:selected").text(),
                    idselect_typeservice: $("#idselect_typeservice").val(),
-                   idselect_service: $("#idselect_service").val(),
+                   idselect_service: $(".idselect_service").val(),
                    idhidden_stylistID: $("#idhidden_stylistID").val()
                },
                function (output) {
                    alert("success");
                    $("#idbtn_caption_res_form").html(output).fadeIn(500);
                });
-           }
+           }else{
+		   $("#idbtn_caption_res_form").html(str_timeout + "=Sorry!. but we cannot reserve at this time because our shop is open only from 9am - 9pm. Thank You.").fadeIn(200).fadeOut(1500);
+		   }
+		   
+		   }
            else {
                $("#idbtn_caption_res_form").html("Check Empty Fields").fadeIn(200).fadeOut(1500);
 
@@ -660,12 +703,17 @@
        }
 
        function fn_recal(str_p_stype) {
-           $.post("http://salon360.byethost11.com/salon360mobileapp/typeofservices.php", {
-               str_recal_stype: str_p_stype
-           },
-           function (output) {
-               $("#idselect_service").html(output).show();
-           });
+	  
+
+if(str_p_stype=="ris"){
+alert("a");
+$("#ris").show();
+$("#home").hide();
+}else if(str_p_stype=="hs"){
+alert("b");
+$("#ris").hide();
+$("#home").show();
+}
        }
 	   
 	   
@@ -686,6 +734,33 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
+
+
+  $("#idselect_sh").change(function() {
+       var v = $(this).val();
+	if(v == 1 || v == 2 || v == 3 ||  v == 4 || v == 5 || v == 6 || v == 7 || v == 8 || v == 12){
+	//alert('disable am');
+	$("select option:contains('AM')").attr("disabled","disabled");
+	$("select option:contains('PM')").attr('selected', true);
+		$('#idselect_su').selectmenu('refresh', true);
+	}
+	else if(v == 10 || v== 11){
+		//alert('enable am disable pm');
+		$("select option:contains('PM')").attr("disabled","disabled");
+			$("select option:contains('AM')").removeAttr("disabled");
+		$('#idselect_su').selectmenu('refresh', true);
+	}
+	else{
+	//alert('enable am');
+	$("select option:contains('AM')").removeAttr("disabled");
+	$("select option:contains('PM')").attr('selected', true);
+	$('#idselect_su').selectmenu('refresh', true);
+	
+	
+	}
+    });
+	
+	
   
 	</script>
     <script src="js/jquery_validate.js"></script>
